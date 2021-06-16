@@ -1,0 +1,651 @@
+/* @import "bootstrap-grid"; */
+@font-face {
+  font-family: "qgrid-iconfont";
+  src: url("../assets/fonts/qgrid-iconfont.eot");
+  src: url("../assets/fonts/qgrid-iconfont.eot?#iefix") format("eot"), url("../assets/fonts/qgrid-iconfont.woff2") format("woff2"), url("../assets/fonts/qgrid-iconfont.woff") format("woff"), url("../assets/fonts/qgrid-iconfont.ttf") format("truetype"), url("../assets/fonts/qgrid-iconfont.svg#qgrid-iconfont") format("svg"); }
+
+.icon:before, .performance:before, .fullycustomable:before, .fastflexible:before, .examples:before, .documents:before, .cleartypescripts:before, .search-glass:before, .logo:before, .angular:before, .angular-js:before, .react:before, .vue:before, .backbone:before, .github:before, .github-link:before, a.github-link2:before, .nav-trigger:before, .search-trigger:before {
+  font-family: "qgrid-iconfont";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  /* speak: none; only necessary if not using the private unicode range (firstGlyph option) */
+  text-decoration: none;
+  text-transform: none; }
+
+.icon-angular:before, .angular:before {
+  content: "\E001"; }
+
+.icon-angularjs:before, .angular-js:before {
+  content: "\E002"; }
+
+.icon-backbone:before, .backbone:before {
+  content: "\E003"; }
+
+.icon-github:before, .github:before, .github-link:before, a.github-link2:before {
+  content: "\E004"; }
+
+.icon-hamburger:before, .nav-trigger:before {
+  content: "\E005"; }
+
+.icon-qgrid-logo-simple:before, .logo:before {
+  content: "\E006"; }
+
+.icon-react:before, .react:before {
+  content: "\E007"; }
+
+.icon-search:before, .search-glass:before, .search-trigger:before {
+  content: "\E008"; }
+
+.icon-vue:before, .vue:before {
+  content: "\E009"; }
+
+.qgrid-examples::before {
+  content: url("../assets/images/qgrid-examples-logo.svg"); }
+
+.icon-cleartypescripts:before, .cleartypescripts:before {
+  content: url("../assets/images/cleartypescripts.svg"); }
+
+.icon-documents:before, .documents:before {
+  content: url("../assets/images/documents.svg"); }
+
+.icon-examples:before, .examples:before {
+  content: url("../assets/images/examples.svg"); }
+
+.icon-fastflexible:before, .fastflexible:before {
+  content: url("../assets/images/fastflexible.svg"); }
+
+.icon-fullycustomable:before, .fullycustomable:before {
+  content: url("../assets/images/fullycustomable.svg"); }
+
+.icon-performance:before, .performance:before {
+  content: url("../assets/images/performance.svg"); }
+
+.qgrid-logo, .performance, .fullycustomable, .fastflexible, .examples, .documents, .cleartypescripts, .search-glass, .logo, .angular, .angular-js, .react, .vue, .backbone, .github, .github-link, a.github-link2, .nav-trigger, .search-trigger, .image-virtualize, .image-css, .image-custom, .image-js {
+  display: inline-block;
+  vertical-align: middle;
+  outline: none;
+  border: 0 transparent;
+  color: white;
+  text-decoration: none;
+  background-color: transparent; }
+
+.image-custom {
+  height: 242px;
+  flex: 1 50%;
+  margin: 0; }
+
+.qgrid-logo {
+  background: url("../assets/images/qgrid-logo.svg") 50% 50% no-repeat;
+  width: 120px;
+  height: 90px;
+  margin: 0; }
+
+.image-virtualize {
+  background: url("../assets/images/virtualize.svg") 50% 50% no-repeat;
+  background-size: 224px 242px;
+  height: 242px;
+  flex: 1 50%;
+  margin: 0; }
+
+.image-css {
+  background: url("../assets/images/css.svg") 50% 50% no-repeat;
+  background-size: 297px 142px;
+  height: 142px;
+  flex: 1 50%;
+  margin: 0; }
+
+.image-custom {
+  background: url("../assets/images/custom.svg") 50% 50% no-repeat;
+  background-size: 231px 199px;
+  height: 199px;
+  flex: 1 50%;
+  margin: 0; }
+
+.image-js {
+  background: url("../assets/images/js.svg") 50% 50% no-repeat;
+  background-size: 200px 200px;
+  height: 200px;
+  flex: 1 50%;
+  margin: 0; }
+
+@media screen and (min-width: 851px) {
+  .pages #nav {
+    display: block !important; }
+  .pages #overlay {
+    display: none !important; }
+  .pages header {
+    display: block;
+    background: none;
+    height: 0; }
+    .pages header .logo-wrapper .logo {
+      display: none; }
+  .qgrid-examples {
+    transition: ease all .5s;
+    top: 80px;
+    right: 37px; } }
+
+@media screen and (min-width: 851px) and (max-width: 1470px) {
+  .pages header {
+    position: absolute; }
+  .qgrid-examples {
+    transition: ease .5s;
+    top: 33px;
+    right: 100px; } }
+
+@media screen and (max-width: 850px) {
+  .news {
+    background-color: yellowgreen;
+    display: flex;
+    flex-direction: column; }
+  .index ul.features li,
+  .index ul.features li:nth-child(2n+1) {
+    flex-direction: column; }
+    .index ul.features li div[class^="image-"],
+    .index ul.features li:nth-child(2n+1) div[class^="image-"] {
+      background-position: 50% 50%;
+      flex-basis: auto; }
+    .index ul.features li .image-virtualize,
+    .index ul.features li:nth-child(2n+1) .image-virtualize {
+      background-size: 112px 121px; }
+    .index ul.features li .image-css,
+    .index ul.features li:nth-child(2n+1) .image-css {
+      background-size: 148.5px 71px; }
+    .index ul.features li .image-js,
+    .index ul.features li:nth-child(2n+1) .image-js {
+      background-size: 100px 100px; }
+    .index ul.features li .image-custom,
+    .index ul.features li:nth-child(2n+1) .image-custom {
+      background-size: 115px 98px; }
+    .index ul.features li .description,
+    .index ul.features li:nth-child(2n+1) .description {
+      flex-basis: auto;
+      text-align: center; }
+      .index ul.features li .description p,
+      .index ul.features li:nth-child(2n+1) .description p {
+        text-align: center;
+        position: relative;
+        max-width: none;
+        margin-right: 20px;
+        margin-left: 20px; }
+  .pages main {
+    margin-left: 0; }
+  .pages .page-wrapper {
+    margin: 0 20px 40px 20px; }
+    .pages .page-wrapper h1:first-child {
+      margin-top: 80px;
+      font-size: 40px; }
+    .pages .page-wrapper h2, .pages .page-wrapper h3, .pages .page-wrapper h4, .pages .page-wrapper h5 {
+      font-size: 1.5em; }
+    .pages .page-wrapper .github-link2 {
+      border: none; }
+      .pages .page-wrapper .github-link2 span {
+        display: none; }
+  .pages header {
+    display: block; }
+    .pages header .logo-wrapper {
+      margin: 0;
+      position: absolute;
+      text-align: center;
+      width: 100%;
+      top: 17px;
+      z-index: -1; }
+      .pages header .logo-wrapper .logo {
+        font-size: 31px;
+        margin: 0; }
+    .pages header .qgrid-examples {
+      top: 27px;
+      right: 67px; }
+      .pages header .qgrid-examples::before {
+        content: url("../assets/images/qgex-small.svg"); }
+  .pages .nav-trigger {
+    display: block; }
+  .pages #nav {
+    display: none;
+    padding-top: 0;
+    z-index: 12; }
+    .pages #nav nav {
+      height: calc(100% - 95px); }
+    .pages #nav .logo {
+      display: none; } }
+
+@media screen and (max-width: 540px) {
+  .index main .get-started h1 {
+    font-size: 22px;
+    line-height: 22px; }
+  .index main .get-started h2, .index main .get-started .page-wrapper h3, .page-wrapper .index main .get-started h3, .index main .get-started .page-wrapper h4, .page-wrapper .index main .get-started h4, .index main .get-started .page-wrapper h5, .page-wrapper .index main .get-started h5 {
+    font-size: 18px;
+    line-height: 18px; }
+  .index main .get-started .frameworks li {
+    font-size: 2.5em;
+    margin-bottom: 10px; } }
+
+::-webkit-scrollbar {
+  width: 0.5em;
+  height: 0.5em; }
+
+::-webkit-scrollbar-thumb {
+  background: #649EED; }
+
+::-webkit-scrollbar-track {
+  background: #b2cff6; }
+
+body {
+  scrollbar-face-color: #649EED;
+  scrollbar-track-color: #b2cff6; }
+
+html,
+body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-size: 14px; }
+
+body {
+  background: #fff; }
+
+section {
+  margin-bottom: 120px; }
+  @media screen and (max-width: 768px) {
+    section {
+      margin-bottom: 80px; } }
+
+.container {
+  width: 100%;
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto; }
+  @media screen and (max-width: 1080px) {
+    .container {
+      max-width: calc(100% - 80px);
+      width: calc(100% - 80px); } }
+
+ul {
+  list-style: none;
+  padding-left: 0; }
+
+a {
+  text-decoration: none; }
+
+.editor {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 540px;
+  position: relative;
+  border-radius: 4px; }
+  @media screen and (max-width: 1080px) {
+    .editor {
+      width: calc(100% - 80px); } }
+  @media screen and (max-width: 768px) {
+    .editor {
+      max-width: 100%;
+      flex: 0 0 100%; } }
+  .editor-frame {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #f5f5f5;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    overflow: hidden; }
+    .editor-frame iframe {
+      margin-top: -45px;
+      border: none;
+      width: 100%;
+      height: calc(100% + 45px); }
+  .editor .source-links {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 40px;
+    background: #ffffff;
+    text-align: center;
+    font-size: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    /*         a {
+            color: #fff;
+            background: #4288fd;
+            position: relative;
+            display: inline-block;
+            margin: auto 2px;
+            border-radius: 0 3px 3px 0;
+            text-decoration: none;
+            transition: background-color 0.05s ease;
+            padding: 0px 8px;
+            min-height: 30px;
+            line-height: 30px;
+            font-size: 13px;
+            margin: 5px 0;
+
+            &:first-child {
+                border-radius: 3px 0 0 3px;
+            }
+
+            &:hover {
+                background: #5896ff;
+            }
+        } */ }
+
+.page-wrapper table {
+  border-spacing: 0;
+  width: 100%; }
+  .page-wrapper table tr td, .page-wrapper table tr th {
+    padding: 1em;
+    text-align: left;
+    vertical-align: top; }
+    .page-wrapper table tr td p:first-child, .page-wrapper table tr th p:first-child {
+      margin-top: 0; }
+    .page-wrapper table tr td p:last-child, .page-wrapper table tr th p:last-child {
+      margin-bottom: 0; }
+  .page-wrapper table tr:nth-child(odd) {
+    background: #e7f1ff; }
+  .page-wrapper table tr:nth-child(even) {
+    background: #CBDFFB; }
+  .page-wrapper table th {
+    color: #fff;
+    font-family: "Roboto Slab", serif;
+    font-weight: normal;
+    background: #353535;
+    padding: 0.5em !important; }
+
+#nav {
+  color: #fff;
+  background-color: #353535;
+  position: fixed;
+  height: 100vh;
+  width: 320px;
+  font-family: "Roboto Slab", serif;
+  box-sizing: border-box;
+  border-top: 1px solid #353535; }
+  #nav nav {
+    height: calc(100% - 340px);
+    overflow-y: auto;
+    overflow-x: hidden; }
+    #nav nav ul {
+      margin: 0;
+      padding: 0; }
+      #nav nav ul li {
+        color: grey;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        list-style: none;
+        font-size: 16px;
+        line-height: 2;
+        padding: 0 10px 0 20px;
+        right: 10px; }
+        #nav nav ul li:first-child {
+          margin-top: 10px; }
+        #nav nav ul li h3 {
+          color: white;
+          font-size: 18px;
+          font-weight: bold;
+          margin: 0; }
+        #nav nav ul li a,
+        #nav nav ul li span {
+          color: rgba(255, 255, 255, 0.8);
+          text-decoration: none;
+          margin-left: 20px;
+          cursor: pointer; }
+          #nav nav ul li a:hover,
+          #nav nav ul li span:hover {
+            color: white; }
+        #nav nav ul li a {
+          display: inline;
+          margin-left: -20px;
+          padding-left: 40px; }
+        #nav nav ul li .tag {
+          display: inline;
+          font-size: 0.8em;
+          font-style: italic;
+          padding: 23px;
+          color: grey; }
+          #nav nav ul li .tag > span {
+            margin-left: 0;
+            color: inherit; }
+        #nav nav ul li .border {
+          display: inline;
+          font-style: italic;
+          margin-left: 5px;
+          color: grey; }
+      #nav nav ul .hide {
+        display: none !important; }
+      #nav nav ul .active-topic {
+        background-color: #0078CF; }
+        #nav nav ul .active-topic a,
+        #nav nav ul .active-topic span {
+          color: white; }
+
+.page-wrapper h1:first-child {
+  font-family: "Roboto Slab", serif;
+  font-weight: normal;
+  padding-bottom: 30px;
+  margin-top: 80px;
+  font-size: 80px; }
+
+.page-wrapper h2, .page-wrapper h3, .page-wrapper h4, .page-wrapper h5 {
+  font-family: "Roboto Slab", serif;
+  font-weight: normal;
+  font-size: 2.5em;
+  padding: 0.5em 0; }
+  .page-wrapper h2 a:first-child::before, .page-wrapper h3 a:first-child::before, .page-wrapper h4 a:first-child::before, .page-wrapper h5 a:first-child::before {
+    content: "#";
+    padding-right: 10px;
+    color: #0078cf; }
+
+.page-wrapper h3 {
+  font-size: 1.5em;
+  font-weight: bold; }
+
+.page-wrapper h4 {
+  font-size: 1.2em;
+  font-weight: bold; }
+
+.page-wrapper h5 {
+  font-size: 1em;
+  font-weight: bold; }
+
+.page-wrapper p {
+  font-size: 1em; }
+
+.page-wrapper table {
+  margin: 1em 0;
+  display: block;
+  overflow-x: auto; }
+  .page-wrapper table td:last-child, .page-wrapper table th:last-child {
+    width: 100%; }
+  .page-wrapper table td.comment, .page-wrapper table th.comment {
+    min-width: 200px; }
+
+.page-wrapper pre.line-numbers {
+  border: 1px solid rgba(0, 0, 0, 0.1); }
+  .page-wrapper pre.line-numbers code {
+    background: transparent;
+    padding: 0em;
+    line-height: 1.4em; }
+
+.page-wrapper pre[class*="language-"]::selection,
+.page-wrapper pre[class*="language-"] ::selection,
+.page-wrapper code[class*="language-"]::selection,
+.page-wrapper code[class*="language-"] ::selection {
+  background: #e7f1ff; }
+
+.page-wrapper a {
+  text-decoration: none;
+  color: #0078cf; }
+
+.page-wrapper blockquote {
+  padding: 1em 2em;
+  color: #6a737d;
+  margin: 1em 0;
+  background: #e7f1ff;
+  font-style: italic; }
+
+.page-wrapper code {
+  padding: 0 0.25em;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px; }
+
+.page-wrapper ul {
+  list-style: none; }
+  .page-wrapper ul > li {
+    position: relative;
+    line-height: 1.4em; }
+    .page-wrapper ul > li:before {
+      content: "";
+      position: absolute;
+      top: 0.6em;
+      left: -13px;
+      width: 8px;
+      height: 1px;
+      background-color: #353535; }
+
+.page-wrapper .highlights {
+  display: flex;
+  flex-flow: column wrap;
+  margin: 0;
+  padding: 0; }
+  .page-wrapper .highlights > li {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    margin-bottom: 55px; }
+    .page-wrapper .highlights > li br {
+      display: none; }
+    .page-wrapper .highlights > li .video {
+      width: 50%;
+      padding: 0; }
+    .page-wrapper .highlights > li:before {
+      content: none; }
+    .page-wrapper .highlights > li .description {
+      display: flex;
+      flex-flow: column wrap;
+      width: auto;
+      flex: 1 1 auto;
+      padding: 0; }
+      .page-wrapper .highlights > li .description h2, .page-wrapper .highlights > li .description h3, .page-wrapper .highlights > li .description h4, .page-wrapper .highlights > li .description h5 {
+        margin-top: 0; }
+      .page-wrapper .highlights > li .description p {
+        font-size: 1.5em;
+        line-height: 1.5em; }
+
+body {
+  display: flex; }
+
+main {
+  background: #fff;
+  color: #333;
+  margin-left: 320px;
+  flex: 1; }
+
+header {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  color: #fff;
+  background: #353535;
+  height: 70px;
+  width: 100vw;
+  font-family: "Roboto Slab", serif; }
+
+.logo {
+  font-size: 100px;
+  margin: 80px 0 35px 80px; }
+
+.github, .github-link, a.github-link2 {
+  font-size: 25px;
+  position: absolute;
+  top: 21px;
+  right: 20px; }
+
+.qgrid-examples {
+  position: absolute; }
+
+.search::placeholder {
+  color: rgba(255, 255, 255, 0.75); }
+
+.nav-trigger {
+  font-size: 18px;
+  display: none;
+  position: absolute;
+  top: 27px;
+  left: 20px; }
+
+[class$="-trigger"] {
+  cursor: pointer; }
+
+.search {
+  display: block;
+  background-color: #444;
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.75);
+  border-width: 0 0 1px 0;
+  text-decoration: none;
+  outline: none;
+  color: white;
+  margin: 20px auto 25px 17px;
+  padding: 15px;
+  width: 280px; }
+
+.page-wrapper {
+  margin: 0 30px 40px 30px;
+  max-width: 1000px;
+  overflow: hidden; }
+
+.github-link, a.github-link2 {
+  position: relative;
+  color: blue;
+  display: inline-block;
+  font-size: 14px;
+  margin: -90px 0 0 20px;
+  padding: 7px 0px 5px 7px;
+  border-radius: 3px;
+  white-space: nowrap;
+  opacity: 0.5;
+  border: 1px solid blue;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s; }
+  .github-link:hover, a.github-link2:hover {
+    overflow: visible;
+    width: auto;
+    opacity: 1; }
+  .github-link span, a.github-link2 span {
+    vertical-align: top;
+    display: inline-block;
+    margin: 0 5px; }
+
+a.github-link2 {
+  float: right;
+  color: white;
+  font-size: 12px;
+  font-family: Roboto;
+  position: relative;
+  margin: -22px -19px 0 0;
+  border-color: white;
+  padding: 3px 3px 0 6px;
+  opacity: 0.75; }
+
+#overlay {
+  display: none;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: 10;
+  background-color: rgba(10, 10, 10, 0.75);
+  cursor: default; }
+
+.highlight {
+  background-color: #efdf00;
+  margin-left: 0 !important; }

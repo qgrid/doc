@@ -1,0 +1,67 @@
+#nav {
+  color: #fff;
+  background-color: #353535;
+  position: fixed;
+  height: 100vh;
+  width: 320px;
+  font-family: "Roboto Slab", serif;
+  box-sizing: border-box;
+  border-top: 1px solid #353535; }
+  #nav nav {
+    height: calc(100% - 340px);
+    overflow-y: auto;
+    overflow-x: hidden; }
+    #nav nav ul {
+      margin: 0;
+      padding: 0; }
+      #nav nav ul li {
+        color: grey;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        list-style: none;
+        font-size: 16px;
+        line-height: 2;
+        padding: 0 10px 0 20px;
+        right: 10px; }
+        #nav nav ul li:first-child {
+          margin-top: 10px; }
+        #nav nav ul li h3 {
+          color: white;
+          font-size: 18px;
+          font-weight: bold;
+          margin: 0; }
+        #nav nav ul li a,
+        #nav nav ul li span {
+          color: rgba(255, 255, 255, 0.8);
+          text-decoration: none;
+          margin-left: 20px;
+          cursor: pointer; }
+          #nav nav ul li a:hover,
+          #nav nav ul li span:hover {
+            color: white; }
+        #nav nav ul li a {
+          display: inline;
+          margin-left: -20px;
+          padding-left: 40px; }
+        #nav nav ul li .tag {
+          display: inline;
+          font-size: 0.8em;
+          font-style: italic;
+          padding: 23px;
+          color: grey; }
+          #nav nav ul li .tag > span {
+            margin-left: 0;
+            color: inherit; }
+        #nav nav ul li .border {
+          display: inline;
+          font-style: italic;
+          margin-left: 5px;
+          color: grey; }
+      #nav nav ul .hide {
+        display: none !important; }
+      #nav nav ul .active-topic {
+        background-color: #0078CF; }
+        #nav nav ul .active-topic a,
+        #nav nav ul .active-topic span {
+          color: white; }

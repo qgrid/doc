@@ -1,0 +1,589 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>
+        Performance Tips — q-grid</title>
+    <meta charset="utf-8">
+    <meta name="description" content="qgrid - Framework for creating data grids">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Performance Tips — qgrid">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="https:////images/logo.png">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Performance Tips — qgrid">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="https:///assets/logo.png">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192"
+          href="/assets/favicons/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="384x384"
+          href="/assets/favicons/android-chrome-384x384.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png">
+    <meta name="msapplication-TileImage" content='/assets/favicons/ms-icon-144x144.png'>
+    <link rel="icon" href="/assets/logo.png" type="image/png">
+
+    <meta name="msapplication-TileColor" content="#2f80ed">
+    <meta name="theme-color" content="#2f80ed">
+
+    <meta name="msapplication-config" content="browserconfig.xml">
+    <link rel="manifest" href="/manifest.json">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- main page styles -->
+    
+<link rel="stylesheet" href="/css/page.css">
+
+
+    <!-- this needs to be loaded before guide's inline scripts -->
+    <script src="/js/menu.js"></script>
+    <script src="/js/lazy.js"></script>
+    <script>window.PAGE_TYPE = "Reference"</script>
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-vs.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+<body class="pages">
+
+
+<header>
+    
+
+<button class="nav-trigger" id="nav-trigger"></button>
+<div class="logo-wrapper">
+    <a href="/" class="logo"></a>
+</div>
+
+<a target="_blank" href="https://github.com/qgrid/ng2" class="github"></a>
+<a target="_blank" href="https://qgrid.github.io/ng2" class="qgrid-examples"></a>
+
+</header>
+
+<aside id="nav">
+    <a href="/" class="logo"></a>
+    <input id="search" placeholder="Search" type="search" class="search" data-stop-propagation/>
+    <nav>
+    <ul>
+        
+                    <li><h3>Getting started</h3></li>
+        
+                            <li data-tag="" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/guide/highlights.html">Highlights</a>
+        
+                        </li>
+        
+                            <li data-tag="Add q-grid & theme modules to the application root,Create an angular component,Dependencies,Development,Browser Support,Licence" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/guide/install.html">How to install</a>
+        
+                        </li>
+        
+                            <li data-tag="11.1.1 - 2021-06-16,Added,Fixed,11.0.1 - 2021-03-30,Fixed,11.0.0 - 2021-03-01,Added,Changed,BREAKING,9.2.1 - 2020-10-19,Fixed,Added,Changed,9.1.11 - 2020-08-19,Fixed,9.1.10 - 2020-08-17,Fixed,9.1.9 - 2020-08-13,Fixed,9.1.8 - 2020-08-11,Fixed,9.1.7 - 2020-07-23,Fixed,9.1.6 - 2020-07-20,Fixed,Changed,Added,9.1.5 - 2020-07-13,Fixed,Added,Changed,9.1.4 - 2020-06-01,BREAKING,Fixed,Added,9.1.2 - 2020-05-27,BREAKING,Added,Changed,Fixed,9.0.1 - 2020-03-13,Fixed,9.0.0 - 2020-03-13,Changed,BREAKING,7.5.2 - 2020-03-04,Fixed,7.5.1 - 2020-01-22,Fixed,7.5.0 - 2020-01-22,Added,Changed,Fixed,BREAKING,7.4.0 - 2019-08-16,Added,7.3.0 - 2019-08-08,Added,Changed,7.2.6 - 2019-07-31,Fixed,7.2.5 - 2019-07-29,Added,Fixed,7.2.4 - 2019-06-25,Fixed,7.2.3 - 2019-06-20,Fixed,7.2.2 - 2019-06-20,Fixed,7.2.1 - 2019-06-20,Fixed,7.2.0 - 2019-06-20,Changed,Fixed,Added,6.4.0 - 2019-05-14,Added,Fixed,6.3.9 - 2019-04-24,Added,6.3.8 - 2019-04-15,Fixed,6.3.7 - 2019-04-12,Fixed,6.3.5 - 2019-04-11,Changed,Fixed,6.3.4 - 2019-03-12,Fixed,6.3.0 - 2019-02-22,Added,Changed,Fixed,6.2.4 - 2019-02-05,Fixed,6.2.3 - 2019-02-05,Added,6.2.2,Fixed,6.2.1,Added,Fixed,6.2.0,Fixed,Added,BREAKING,6.1.5 - 2018-07-03,Fixed,Added,6.1.4 - 2018-06-28,Fixed,Added,Changed,6.1.3 - 2018-06-21,Fixed,6.1.1 - 2018-06-15,Fixed,Changed ,6.1.0 - 2018-06-15,BREAKING,Deprecated,Added,Changed,Fixed,5.3.10 - 2018-05-21,Added,Changed,Fixed,5.3.9 - 2018-05-18,Added,Changed,Fixed,5.3.7 - 2018-07-08,Added,Fixed,5.3.6 - 2018-04-20,Added,5.3.5 - 2018-04-19,Added,5.3.4 - 2018-04-18,Added,5.3.3 - 2018-04-13,Added,Fixed,5.3.2 - 2018-03-23,Added,Changed,Fixed,5.2.4 - 2018-02-16,Changed,Fixed,5.2.3 - 2018-02-12,Fixed,5.2.2 - 2018-02-12,Fixed,5.2.0 - 2018-02-09,Added,Changed,Fixed,5.1.2 - 2018-01-03,Added,Changed,5.1.1 - 2017-12-28,Added,Changed,Fixed,5.0.2 - 2017-12-22,Added" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/guide/changelog.html">Changelog</a>
+        
+                        </li>
+        
+                    <li><h3>Features</h3></li>
+        
+                            <li data-tag="What will happen if array of rows is not consistent,How to setup rows using q-grid model,How to make rows frozen/pinned,How to enable row resizing and drag & drop" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/feature/data-rows.html">Data Rows</a>
+        
+                        </li>
+        
+                            <li data-tag="Column Definitions,Structural directives and column visibility,How to define columns in TypeScript,How to define columns by using q-grid model,How to make columns frozen/pinned,How to define column order,Suggested Links" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/feature/data-columns.html">Data Columns</a>
+        
+                        </li>
+        
+                            <li data-tag="How to change selection mode,How to change what should be selectable,How to listen selection changes,How to restrict selection only on checkbox click,How to prevent unselecting if row was clicked again,How to hide column with check-boxes,How to select rows by id,How to disable particular rows from being selected,What shortcuts does selection implement by default,How to override default selection shortcuts,How to handle click events" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/feature/selection.html">Selection</a>
+        
+                        </li>
+        
+                            <li data-tag="How to change column header template,How to change cell editor template,How to change aggregation template in the column footer,How to implement custom aggregation in the column footer,Suggested Links" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/feature/cell-templates.html">Cell Templates</a>
+        
+                        </li>
+        
+                            <li data-tag="How to set a page number,How to reset pagination on sorting,Suggested Links" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/feature/pagination.html">Pagination</a>
+        
+                        </li>
+        
+                            <li data-tag="How to add default filter on component load,How to add a filter row,How to propagate list of filter by items to the column filter from the server,How to disable particular column filter,How to filter q-grid externally" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/feature/filtering.html">Filtering</a>
+        
+                        </li>
+        
+                            <li data-tag="How to prevent column order affect on sorting,How to change default column sorting,How to allow to sort only by one column at the same time" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/feature/sorting.html">Sorting</a>
+        
+                        </li>
+        
+                            <li data-tag="How to implement a custom layer,How to show message when there is no data" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/feature/layer-system.html">Layer System</a>
+        
+                        </li>
+        
+                            <li data-tag="How to apply styles to particular cell or row,How to change column width,How to make column width auto adjusted to the cell content,Suggested Links" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/feature/appearance.html">Appearance</a>
+        
+                        </li>
+        
+                            <li data-tag="How to expand or collapse all row details,How to disable/hide expand button,How to show nested q-grid in details template,How to hide row details expand column,How to expand details on row click or on keyboard event,Suggested Links" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/feature/row-details.html">Row Details</a>
+        
+                        </li>
+        
+                            <li data-tag="How to access edit events in q-grid,How to enable batch edit,How to disable edit mode for the particular column,How to add a new row to the end,How to add delete button and implement row deletion,How to change edit shortcuts,How to prevent value change it it's empty,How to enter or exit edit mode,How to disable edit mode,Suggested Links" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/feature/editing.html">Editing</a>
+        
+                        </li>
+        
+                            <li data-tag="Grouping Modes,How to enable group summary template,How to implement custom hierarchy model,Suggested Links" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/feature/grouping.html">Grouping</a>
+        
+                        </li>
+        
+                            <li data-tag="What shortcuts does navigation implement by default,How to override default navigation shortcuts,Shortcut limitations for browsers,Prevent default keyboard actions,Suggested Links" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/feature/navigation.html">Navigation</a>
+        
+                        </li>
+        
+                            <li data-tag="How to apply auto focus in q-grid,How to focus the last row,How to understand if q-grid is in focus or not" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/feature/focus.html">Focusing</a>
+        
+                        </li>
+        
+                            <li data-tag="How to override pivot cell template" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/feature/pivoting.html">Pivoting</a>
+        
+                        </li>
+        
+                            <li data-tag="" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/feature/busy.html">Busy Indicator</a>
+        
+                        </li>
+        
+                            <li data-tag="" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/feature/visibility.html">Visibility</a>
+        
+                        </li>
+        
+                            <li data-tag="" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/feature/master-details.html">Master-Details</a>
+        
+                        </li>
+        
+                            <li data-tag="How to implement infinite scroll" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/feature/virtualization.html">Virtualization</a>
+        
+                        </li>
+        
+                    <li><h3>Column Types</h3></li>
+        
+                            <li data-tag="Column Type,Column Key,Column Title,Column Description,Column Value & Label,Column Path & LabelPath,Column Pin,Column Class,Column Editor & EditorOptions,Column Width, MaxWidth & MinWidth,Column WidthMode,Column ViewWidth,Column Indicators,Column Index ,Column Compare,Column Children,Column Aggregation,Aggregation Options,How to show tooltip in column header,How does isDefault property work" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/column-type/grid-column.html">Grid Column</a>
+        
+                        </li>
+        
+                            <li data-tag="Default template and specific properties" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/column-type/array-column.html">Array</a>
+        
+                        </li>
+        
+                            <li data-tag="Default template and specific properties,How to prevent value change on cell click" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/column-type/bool-column.html">Boolean</a>
+        
+                        </li>
+        
+                            <li data-tag="Default template and specific properties,Suggested Links" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/column-type/currency-column.html">Currency</a>
+        
+                        </li>
+        
+                            <li data-tag="Time,Default template and specific properties,Date as String,Suggested Links" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/column-type/date-column.html">Date Time</a>
+        
+                        </li>
+        
+                            <li data-tag="Image,Default template and specific properties" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/column-type/file-column.html">File & Image</a>
+        
+                        </li>
+        
+                            <li data-tag="Default template and specific properties,Suggested Links" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/column-type/numeric-column.html">Numeric</a>
+        
+                        </li>
+        
+                            <li data-tag="Default template and specific properties" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/column-type/reference-column.html">Reference</a>
+        
+                        </li>
+        
+                            <li data-tag="Row Number,Default template and use cases" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/column-type/row-indicator-column.html">Row Indicator</a>
+        
+                        </li>
+        
+                            <li data-tag="Default template,How to open row options menu on enter pressed,Suggested Links" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/column-type/row-options-column.html">Row Options</a>
+        
+                        </li>
+        
+                            <li data-tag="Default template" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/column-type/select-column.html">Select</a>
+        
+                        </li>
+        
+                            <li data-tag="Default template and specific properties,How to fit text to column width" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/column-type/text-column.html">Text</a>
+        
+                        </li>
+        
+                            <li data-tag="Email,Default template and specific properties" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/column-type/url-column.html">Url & Email</a>
+        
+                        </li>
+        
+                    <li><h3>Customization</h3></li>
+        
+                            <li data-tag="ng-templatefor,ng-containerkey,Suggested Links" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/customization/template-system.html">Template System</a>
+        
+                        </li>
+        
+                            <li data-tag="What we are going to build,The Command,Pager Template,Plugin Service,Pager Component,Coming Soon" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/customization/plugin.html">How to write a plugin</a>
+        
+                        </li>
+        
+                            <li data-tag="Theme Component,Theme Module,Suggested Links" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/customization/theme.html">How to made a theme</a>
+        
+                        </li>
+        
+                    <li><h3>Plugins</h3></li>
+        
+                            <li data-tag="Installation,The Contract,Hot wot setup default condition on component load,Suggested Links" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/plugin/condition-builder.html">Condition Builder</a>
+        
+                        </li>
+        
+                            <li data-tag="Installation" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/plugin/data-manipulation.html">Data Manipulation</a>
+        
+                        </li>
+        
+                            <li data-tag="Installation,Suggested Links" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/plugin/pager.html">Pager</a>
+        
+                        </li>
+        
+                            <li data-tag="Installation,How to add excel support,How to support custom template for export action,What format types are supported,Suggested Links" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/plugin/export.html">Export to file</a>
+        
+                        </li>
+        
+                            <li data-tag="Installation,How to add excel support,How to support custom template for import action,What format types are supported,Suggested Links" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/plugin/import.html">Import from file</a>
+        
+                        </li>
+        
+                            <li data-tag="Installation" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/plugin/legend.html">Legend</a>
+        
+                        </li>
+        
+                            <li data-tag="Installation" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/plugin/tooltip.html">Tooltip</a>
+        
+                        </li>
+        
+                            <li data-tag="Installation,POST Method,GET Method,How to make a custom contract,Suggested Links" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/plugin/rest.html">REST</a>
+        
+                        </li>
+        
+                            <li data-tag="Installation,Suggested Links" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/plugin/validation.html">Validation</a>
+        
+                        </li>
+        
+                            <li data-tag="Installation,How to override action template" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/plugin/action.html">Action</a>
+        
+                        </li>
+        
+                            <li data-tag="Installation,How to save/load state on server" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/plugin/persistence.html">State Persistence</a>
+        
+                        </li>
+        
+                            <li data-tag="Installation" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/plugin/toolbar.html">Toolbar</a>
+        
+                        </li>
+        
+                            <li data-tag="Installation,How to show custom label for this list of objects,Suggested Links" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/plugin/autocomplete.html">Autocomplete</a>
+        
+                        </li>
+        
+                            <li data-tag="Installation,How to show labels in dropdown list,Suggested Links" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/plugin/dropdown.html">Dropdown</a>
+        
+                        </li>
+        
+                            <li data-tag="Installation" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/plugin/edit-form.html">Edit Form</a>
+        
+                        </li>
+        
+                            <li data-tag="Installation,How to open pane manually without trigger" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/plugin/pane.html">Pane</a>
+        
+                        </li>
+        
+                            <li data-tag="Installation,How to setup animation period" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/plugin/live.html">Live</a>
+        
+                        </li>
+        
+                    <li><h3>Reference</h3></li>
+        
+                            <li data-tag="What about id in the q-grid,How to setup title of the grid" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/reference/grid-component.html">Grid Component</a>
+        
+                        </li>
+        
+                            <li data-tag="How to detect if something was changed in the model" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/reference/grid-model.html">Grid Model</a>
+        
+                        </li>
+        
+                            <li data-tag="Create utility service,Create q-grid model in the code" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/reference/grid-facade.html">Grid Facade</a>
+        
+                        </li>
+        
+                            <li data-tag="Default Pipeline,Data Pipe,Filter Pipe,Sort Pipe,Memo pipe,Group Pipe,Pivot Pipe,Column Pipe,Pagination Pipe,View Pipe,Pipe Units,The Scene" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/reference/data-middleware.html">Data Middleware</a>
+        
+                        </li>
+        
+                            <li data-tag="" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/reference/cell-service.html">Cell Service</a>
+        
+                        </li>
+        
+                            <li data-tag="" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/reference/view-service.html">View Service</a>
+        
+                        </li>
+        
+                            <li data-tag="Invalidate q-grid explicitly,Virtualization,The OnPush Host" data-example-tag="" class="active-topic ">
+        
+                            <span class="title">Performance Tips</span>
+        
+                        </li>
+        
+                            <li data-tag="" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/reference/dom.html">DOM Internals</a>
+        
+                        </li>
+        
+                            <li data-tag="The Picture" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/reference/style-api.html">Style API</a>
+        
+                        </li>
+        
+                            <li data-tag="" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/reference/keyboard-api.html">Keyboard API</a>
+        
+                        </li>
+        
+                            <li data-tag="" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/reference/mouse-api.html">Mouse API</a>
+        
+                        </li>
+        
+                            <li data-tag="" data-example-tag="" class=" ">
+        
+                            <a class="title" href="/reference/fetch.html">Fetch</a>
+        
+                        </li>
+        
+
+    </ul>
+</nav>
+</aside>
+
+
+<main>
+    <div class="page-wrapper">
+    <h1>Performance Tips</h1>
+    <p>The q-grid introduces 3 modes that allows to change performance strategy.</p>
+<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>q-grid</span> <span class="token attr-name">interactionMode</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>detached<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>q-grid</span><span class="token punctuation">></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ul>
+<li>Use <code>full</code> mode to get all benefits of change detection, this is a default behavior. </li>
+<li>Use <code>readonly</code> mode to enable help of internal cache to acquire cell values.</li>
+<li>Use <code>detached</code> mode to disable change detection after render occurs.</li>
+</ul>
+<blockquote>
+<p>Regardless of the detached setting, Angular will check the cells for changes whenever the component fires an event or an observable fires an event, and the async pipe is used in the view with that observable.</p>
+</blockquote>
+
+    <div class="editor">
+      <span class="editor-frame">
+        <iframe data-src="//stackblitz.com/github/qgrid/ng2-example/tree/interaction-mode-detached/latest?embed=1&file=app/app.component.ts&hideExplorer=1&hideNavigation=1&hidedevtools=1&view=preview">
+        </iframe>
+      </span>
+      <div class="source-links">
+      </div>
+    </div>
+
+
+<h2 id="Invalidate-q-grid-explicitly"><a href="#Invalidate-q-grid-explicitly" class="headerlink" title="Invalidate q-grid explicitly"></a>Invalidate q-grid explicitly</h2><p>When interaction mode is equal to readonly or detached use <code>invalidate</code> method to refresh cell values or create a <code>new reference</code> of the data rows.</p>
+<pre class="line-numbers language-typescript"><code class="language-typescript"><span class="token keyword">import</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> Grid<span class="token punctuation">,</span> GridModel <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">from</span> <span class="token string">'ng2-qgrid'</span><span class="token punctuation">;</span>
+
+@<span class="token function">Component</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+   selector<span class="token punctuation">:</span> <span class="token string">'my-component'</span><span class="token punctuation">,</span>
+   template<span class="token punctuation">:</span> <span class="token template-string"><span class="token string">` &lt;q-grid [rows]="rows" interactionMode="readonly"> &lt;/q-grid> `</span></span><span class="token punctuation">,</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">MyComponent</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+   rows<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+   gridModel <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>qgrid<span class="token punctuation">.</span><span class="token function">model</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+   <span class="token keyword">constructor</span><span class="token punctuation">(</span>
+      <span class="token keyword">private</span> qgrid<span class="token punctuation">:</span> Grid<span class="token punctuation">,</span> 
+      dataService<span class="token punctuation">:</span> MyDataService
+   <span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+      dataService<span class="token punctuation">.</span><span class="token function">getRows</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token punctuation">(</span>rows<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>rows <span class="token operator">=</span> rows<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+
+   <span class="token function">updateCellUsingInvalidate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>rows<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>gender <span class="token operator">=</span> <span class="token string">'female'</span><span class="token punctuation">;</span>
+
+      <span class="token keyword">const</span> service <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>qgrid<span class="token punctuation">.</span><span class="token function">service</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>gridModel<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      service<span class="token punctuation">.</span><span class="token function">invalidate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+
+   <span class="token function">updateCellUsingNewRowsRef</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+      <span class="token keyword">const</span> rows <span class="token operator">=</span> <span class="token keyword">Array</span><span class="token punctuation">.</span><span class="token keyword">from</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>rows<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      rows<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>gender <span class="token operator">=</span> <span class="token string">'female'</span><span class="token punctuation">;</span>
+
+      <span class="token keyword">this</span><span class="token punctuation">.</span>gridModel<span class="token punctuation">.</span><span class="token function">data</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> rows <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="Virtualization"><a href="#Virtualization" class="headerlink" title="Virtualization"></a>Virtualization</h2><blockquote>
+<p>This is a beta version, don’t use it in the production.</p>
+</blockquote>
+<p>Virtual scroll can offer performance benefits when working with large collections. It does so by only rendering and processing a subset of the data which is visible to the user vs. processing the entire list of data. By creating only DOM elements for the visible items, this can greatly reduce the amount of work it has to do. q-grid provides <code>vscroll</code> module that is available not only for row and column virtualization but also for plugins. For instance, column filter plugin uses <code>vscroll</code> to virtualize value list. </p>
+<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>q-grid</span> <span class="token attr-name">scrollMode</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>virtual<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>q-grid</span><span class="token punctuation">></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+    <div class="editor">
+      <span class="editor-frame">
+        <iframe data-src="//stackblitz.com/github/qgrid/ng2-example/tree/scroll-virtual-style/latest?embed=1&file=app/app.component.ts&hideExplorer=1&hideNavigation=1&hidedevtools=1&view=preview">
+        </iframe>
+      </span>
+      <div class="source-links">
+      </div>
+    </div>
+
+
+<h2 id="The-OnPush-Host"><a href="#The-OnPush-Host" class="headerlink" title="The OnPush Host"></a>The OnPush Host</h2><p>If component which hosted q-grid implements <code>onPush</code> change detection strategy, the q-grid body behaves similar as interaction mode was set to <code>detached</code>.</p>
+
+</div>
+
+</main>
+
+
+<div id="overlay"></div>
+
+</body>
+
+</html>
